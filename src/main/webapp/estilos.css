@@ -1,0 +1,2197 @@
+/* =====================================================
+   BAD EAGLE — HOJA DE ESTILOS GLOBAL
+   Consolidado de todas las revisiones visuales
+===================================================== */
+
+/* =====================================================
+   1. CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --negro: #000000;
+    --gris-oscuro: #333333;
+    --gris: #777777;
+    --gris-claro: #cfcfcf;
+    --gris-fondo: #f7f7f7;
+    --blanco: #ffffff;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   2. HEADER
+===================================================== */
+
+.header {
+    width: 100%;
+    border-bottom: 1px solid var(--gris);
+    background-color: var(--blanco);
+}
+
+.header-contenido {
+    width: 96%;
+    max-width: 1400px;
+    height: 125px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--negro);
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+/* Versión texto (fallback, por si otra pantalla lo usa) */
+.logo-nombre {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.logo-eslogan {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* Versión imagen (header estándar) */
+.logo-imagen {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* funde el fondo blanco del JPEG con el header */
+}
+
+.logo-imagen-nombre {
+    height: 68px;
+}
+
+.logo-imagen-eslogan {
+    height: 26px;
+}
+
+/* Grupo de iconos a la derecha (carrito + perfil) */
+.acciones-header {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.icono {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--negro);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.icono:hover {
+    border-color: var(--negro);
+    background-color: #f5f5f5;
+}
+
+.icono svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+}
+
+
+/* =====================================================
+   3. NAVEGACIÓN
+===================================================== */
+
+.navegacion {
+    width: 96%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.nav-enlace {
+    color: var(--negro);
+    font-size: 17px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.nav-enlace:hover {
+    opacity: 0.55;
+}
+
+/* Filtros de categoría (catálogo) — <button> con reset visual */
+button.nav-enlace {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-enlace.activo {
+    font-weight: bold;
+    text-decoration-thickness: 2px;
+}
+
+
+/* =====================================================
+   4. HEADER + NAV — RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+    .header-contenido { height: 100px; }
+    .logo-nombre { font-size: 24px; }
+    .logo-eslogan { font-size: 7px; }
+    .logo-imagen-nombre { height: 54px; }
+    .logo-imagen-eslogan { height: 21px; }
+    .acciones-header { right: 5px; gap: 2px; }
+    .icono { width: 40px; height: 40px; }
+    .navegacion {
+        height: auto;
+        min-height: 50px;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 8px 0;
+    }
+    .nav-enlace { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .header-contenido { height: 85px; }
+    .logo-nombre { font-size: 20px; }
+    .logo-eslogan { font-size: 6px; }
+    .logo-imagen-nombre { height: 44px; }
+    .logo-imagen-eslogan { height: 18px; }
+    .acciones-header { gap: 0; }
+    .icono { width: 36px; height: 36px; }
+    .icono svg { width: 17px; height: 17px; }
+    .navegacion {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+        padding: 12px 0;
+    }
+}
+
+
+/* =====================================================
+   5. MAIN (base) — para páginas genéricas / fallback
+===================================================== */
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px 45px;
+}
+
+.marca-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.aguila {
+    width: 330px;
+    height: 250px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.aguila path,
+.aguila line,
+.aguila polyline {
+    stroke: var(--negro);
+    fill: none;
+    stroke-width: 5;
+}
+
+.marca-central h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.marca-central p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+    main { padding: 30px 15px; }
+    .aguila { width: 260px; height: 200px; }
+    .marca-central h1 { font-size: 32px; }
+}
+
+@media (max-width: 480px) {
+    .aguila { width: 220px; height: 170px; }
+    .marca-central h1 { font-size: 27px; }
+    .marca-central p { font-size: 8px; }
+}
+
+
+/* =====================================================
+   6. INICIO (home.jsp)
+===================================================== */
+
+main.inicio-principal {
+    flex: 1;
+    width: 100%;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 35px 20px 45px;
+}
+
+.inicio-imagen {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 65vh;
+    object-fit: contain;
+}
+
+.inicio-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 220px;
+    max-width: 100%;
+    min-height: 48px;
+    height: auto;
+    padding: 12px 30px;
+    margin-top: 0;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    main.inicio-principal {
+        min-height: 280px;
+        padding: 30px 15px;
+        gap: 20px;
+    }
+    .inicio-imagen {
+        max-width: 500px;
+        max-height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    main.inicio-principal { padding: 25px 12px; }
+    .inicio-imagen {
+        max-width: 100%;
+        max-height: 50vh;
+    }
+    .inicio-boton {
+        width: 100%;
+        max-width: 280px;
+        min-width: 0;
+    }
+}
+
+
+/* =====================================================
+   7. CATÁLOGO (catalogo.jsp)
+===================================================== */
+
+main.catalogo-main {
+    display: block;
+    flex: 1;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.catalogo-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.catalogo-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.producto-card {
+    border: 1px solid var(--gris-claro);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.producto-card:hover {
+    border-color: var(--gris);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.producto-card.oculto {
+    display: none;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.producto-sin-imagen {
+    width: 100%;
+    height: 200px;
+    background-color: var(--gris-fondo);
+    color: var(--gris);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.producto-nombre {
+    font-size: 16px;
+    margin: 15px 0 5px;
+}
+
+.producto-precio {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.producto-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    main.catalogo-main { padding: 30px 15px; }
+    .catalogo-titulo { font-size: 20px; margin-bottom: 25px; }
+    .catalogo-grid { gap: 20px; }
+    .producto-imagen,
+    .producto-sin-imagen { height: 180px; }
+}
+
+@media (max-width: 480px) {
+    main.catalogo-main { padding: 25px 12px; }
+    .catalogo-titulo { font-size: 18px; margin-bottom: 20px; }
+    .catalogo-grid { gap: 15px; }
+    .producto-imagen,
+    .producto-sin-imagen { height: 160px; }
+    .producto-nombre { font-size: 15px; }
+    .producto-precio { font-size: 16px; }
+}
+
+
+/* =====================================================
+   8. CARRITO (carrito.jsp)
+===================================================== */
+
+main.carrito-main {
+    display: block;
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.carrito-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.carrito-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.carrito-tabla thead tr {
+    border-bottom: 2px solid var(--negro);
+    text-align: left;
+}
+
+.carrito-tabla th {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.carrito-tabla tbody tr {
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.carrito-tabla td {
+    padding: 15px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.carrito-tabla .col-subtotal {
+    text-align: right;
+}
+
+/* Celda del producto con miniatura */
+.carrito-celda-producto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carrito-thumb {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border: 1px solid var(--gris-claro);
+    background-color: var(--blanco);
+    flex-shrink: 0;
+    padding: 3px;
+}
+
+.carrito-thumb-sin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gris-fondo);
+    color: var(--gris);
+    font-size: 9px;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.carrito-nombre {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.carrito-total {
+    text-align: right;
+    border-top: 2px solid var(--negro);
+    padding-top: 20px;
+}
+
+.carrito-total h2 {
+    margin-bottom: 20px;
+}
+
+.carrito-boton-pago {
+    width: auto;
+    padding: 0 40px;
+    height: 50px;
+    font-size: 16px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.carrito-vacio h2 {
+    margin-bottom: 20px;
+}
+
+.carrito-vacio-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0 30px;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    main.carrito-main { padding: 30px 15px; }
+    .carrito-titulo { font-size: 20px; }
+    .carrito-tabla th,
+    .carrito-tabla td { padding: 10px 6px; font-size: 13px; }
+    .carrito-thumb { width: 54px; height: 54px; }
+    .carrito-nombre { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+    main.carrito-main { padding: 25px 12px; }
+    .carrito-titulo { font-size: 18px; }
+    .carrito-tabla th,
+    .carrito-tabla td { padding: 8px 4px; font-size: 12px; }
+    .carrito-thumb { width: 48px; height: 48px; }
+    .carrito-celda-producto { gap: 8px; }
+    .carrito-total h2 { font-size: 18px; }
+    .carrito-boton-pago { padding: 0 20px; font-size: 14px; height: 46px; }
+}
+
+
+/* =====================================================
+   9. DETALLE PRODUCTO (detalle-producto.jsp)
+===================================================== */
+
+main.detalle-main {
+    display: block;
+    flex: 1;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.detalle-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.detalle-imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--gris-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris);
+    background-color: var(--gris-fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.detalle-info h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.detalle-descripcion {
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+.detalle-grupo {
+    margin-bottom: 20px;
+}
+
+.detalle-grupo h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.detalle-tallas,
+.detalle-colores {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.detalle-talla {
+    width: 48px;
+    height: 38px;
+    border: 1px solid var(--gris);
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.detalle-talla:hover,
+.detalle-talla.activo {
+    border-color: var(--negro);
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.detalle-color {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--negro);
+    cursor: pointer;
+    padding: 0;
+}
+
+.detalle-color-gris  { background-color: #999999; }
+.detalle-color-negro { background-color: #333333; }
+.detalle-color-claro { background-color: #dddddd; }
+
+.detalle-precio {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+
+.detalle-boton {
+    width: 100%;
+    height: 48px;
+}
+
+.detalle-volver {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--negro);
+}
+
+.detalle-volver:hover {
+    opacity: 0.55;
+}
+
+@media (max-width: 768px) {
+    main.detalle-main { padding: 30px 15px; }
+    .detalle-grid { grid-template-columns: 1fr; gap: 25px; }
+    .detalle-imagen { aspect-ratio: 4 / 3; }
+    .detalle-precio { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+    main.detalle-main { padding: 25px 12px; }
+    .detalle-precio { font-size: 20px; }
+    .detalle-talla { width: 42px; height: 36px; }
+}
+
+
+/* =====================================================
+   10. FOOTER
+===================================================== */
+
+footer {
+    width: 100%;
+    border-top: 1px solid var(--gris);
+    background-color: var(--blanco);
+}
+
+.footer-contenido {
+    width: 96%;
+    max-width: 1400px;
+    min-height: 48px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.footer-enlace {
+    color: var(--negro);
+    font-size: 16px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-enlace:hover {
+    opacity: 0.55;
+}
+
+@media (max-width: 768px) {
+    .footer-contenido {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 5px;
+    }
+    .footer-enlace { font-size: 14px; }
+}
+
+
+/* =====================================================
+   11. FORMULARIOS (login.jsp / registro.jsp — pantalla limpia)
+===================================================== */
+
+.pagina-formulario {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.tarjeta-formulario {
+    width: 100%;
+    max-width: 430px;
+    min-height: 590px;
+    border: 1px solid var(--gris-claro);
+    border-radius: 5px;
+    padding: 30px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-formulario > .logo {
+    margin-bottom: 22px;
+}
+
+.titulo-formulario {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.campo {
+    position: relative;
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    border: 1px solid var(--gris-claro);
+    border-radius: 3px;
+    padding: 0 42px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    outline: none;
+}
+
+.campo input { height: 44px; }
+.campo select { height: 44px; padding: 0 15px; }
+.campo textarea { height: 105px; padding: 12px; resize: vertical; }
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--negro);
+}
+
+.icono-campo {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 19px;
+    color: var(--gris);
+    pointer-events: none;
+}
+
+.icono-campo svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
+}
+
+.mostrar-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--gris);
+}
+
+.recuperar {
+    display: block;
+    width: fit-content;
+    margin: 17px auto 25px;
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.terminos {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+}
+
+.terminos input {
+    width: 13px;
+    height: 13px;
+    accent-color: var(--negro);
+    cursor: pointer;
+}
+
+.terminos a {
+    color: var(--negro);
+    text-decoration: underline;
+}
+
+.formulario-form {
+    width: 100%;
+}
+
+
+/* =====================================================
+   12. BOTONES
+===================================================== */
+
+.btn-principal {
+    width: 100%;
+    height: 48px;
+    border: 1px solid var(--negro);
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+.btn-secundario {
+    width: 100%;
+    height: 48px;
+    border: 1px solid var(--negro);
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-secundario:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.btn-peligro {
+    background-color: #c00;
+    color: #fff;
+    border: 1px solid #c00;
+    transition: 0.2s;
+}
+
+.btn-peligro:hover {
+    background-color: #fff;
+    color: #c00;
+}
+
+.registro,
+.iniciar-sesion {
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.registro a,
+.iniciar-sesion a {
+    color: var(--negro);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   13. MENSAJES (formulario + perfil)
+===================================================== */
+
+.mensaje-error {
+    display: none;
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 12px;
+    border: 1px solid var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+.mensaje-error.visible {
+    display: block;
+}
+
+.mensaje-registro {
+    width: 100%;
+    margin: 12px 0;
+    padding: 10px;
+    border: 1px solid var(--gris-claro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mensaje-registro.error {
+    color: var(--negro);
+    background-color: var(--gris-fondo);
+    border-color: var(--gris);
+}
+
+.mensaje-registro.exito {
+    color: var(--negro);
+    background-color: var(--blanco);
+    border-color: var(--negro);
+}
+
+.mensaje-perfil {
+    max-width: 900px;
+    margin: 0 auto 25px;
+    padding: 12px 15px;
+    border: 1px solid var(--gris);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mensaje-perfil.error {
+    background-color: var(--gris-fondo);
+    color: var(--negro);
+}
+
+.mensaje-perfil.exito {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+
+/* =====================================================
+   14. PERFIL (perfil.jsp)
+===================================================== */
+
+.perfil-layout {
+    width: 96%;
+    max-width: 1400px;
+    flex: 1;
+    margin: 45px auto 75px;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 45px;
+}
+
+.perfil-sidebar {
+    border-right: 1px solid var(--gris-claro);
+    padding-right: 22px;
+    min-width: 0;
+}
+
+.perfil-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.perfil-menu-link {
+    display: block;
+    width: 100%;
+    padding: 17px 18px;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--blanco);
+    color: var(--negro);
+    text-align: left;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.perfil-menu-link:hover,
+.perfil-menu-link.activo {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.perfil-logout-form {
+    margin: 0;
+    width: 100%;
+}
+
+/* Fix: neutraliza el display:flex / align-items del selector `main` */
+main.perfil-contenido {
+    display: block;
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+    flex: 0 1 auto;
+}
+
+.perfil-titulo {
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    font-weight: normal;
+}
+
+.perfil-seccion {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 38px;
+}
+
+.perfil-subtitulo {
+    margin: 0 0 18px;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.perfil-descripcion {
+    margin-bottom: 18px;
+    color: var(--gris-oscuro);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.perfil-datos {
+    width: 100%;
+    border-top: 1px solid var(--gris-claro);
+}
+
+.perfil-fila {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.5fr);
+    border-bottom: 1px solid var(--gris-claro);
+    min-height: 50px;
+}
+
+.perfil-etiqueta,
+.perfil-valor {
+    padding: 15px 18px;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.perfil-etiqueta { font-weight: bold; }
+.perfil-valor { font-weight: normal; }
+
+.perfil-formulario {
+    width: 100%;
+    max-width: 600px;
+}
+
+.perfil-formulario label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.perfil-formulario input[type="text"] {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    border: 1px solid var(--gris-claro);
+    border-radius: 2px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.perfil-formulario input[type="text"]:focus {
+    outline: 1px solid var(--negro);
+    border-color: var(--negro);
+}
+
+.perfil-formulario .btn-principal {
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .perfil-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        margin-top: 25px;
+    }
+    .perfil-sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--gris-claro);
+        padding: 0 0 20px;
+    }
+    .perfil-menu-link {
+        padding: 14px;
+        font-size: 14px;
+    }
+    .perfil-titulo {
+        margin-bottom: 28px;
+        font-size: 25px;
+    }
+    .perfil-fila {
+        grid-template-columns: minmax(110px, 0.8fr) minmax(0, 1.2fr);
+    }
+    .perfil-etiqueta,
+    .perfil-valor {
+        padding: 12px 9px;
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   15. ACCESIBILIDAD — FOCO VISIBLE
+===================================================== */
+
+.icono:focus-visible,
+.logo:focus-visible,
+.nav-enlace:focus-visible,
+.footer-enlace:focus-visible,
+.inicio-boton:focus-visible,
+.btn-principal:focus-visible,
+.btn-secundario:focus-visible,
+.btn-peligro:focus-visible,
+.detalle-talla:focus-visible,
+.detalle-color:focus-visible,
+.detalle-volver:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 4px;
+}
+/* =====================================================
+   16. CONTACTO / PQR (contacto.jsp)
+===================================================== */
+
+main.pagina-contacto {
+    display: block;              /* fix: override flex de `main` genérico */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.contacto-titulo {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.contenido-contacto {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.formulario {
+    width: 100%;
+}
+
+.contacto-campo {
+    margin-bottom: 12px;
+}
+
+.contacto-campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.contacto-campo input,
+.contacto-campo select,
+.contacto-campo textarea {
+    width: 100%;
+    border: 1px solid var(--gris-claro);
+    border-radius: 3px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    outline: none;
+    padding: 0 10px;
+}
+
+.contacto-campo input,
+.contacto-campo select {
+    height: 38px;
+}
+
+.contacto-campo textarea {
+    height: 120px;
+    padding: 10px;
+    resize: vertical;
+}
+
+.contacto-campo input:focus,
+.contacto-campo select:focus,
+.contacto-campo textarea:focus {
+    border-color: var(--negro);
+}
+
+.contador {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+    font-size: 10px;
+    color: var(--gris);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-enviar {
+    width: 100%;
+    height: 44px;
+    margin-top: 10px;
+    border: 1px solid var(--negro);
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+.btn-enviar:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 4px;
+}
+
+.tipos {
+    border: 1px solid var(--gris-claro);
+    border-radius: 3px;
+}
+
+.tipos-titulo {
+    padding: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--gris-claro);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tipo {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border-bottom: 1px solid #eeeeee;
+    transition: 0.2s;
+}
+
+.tipo:last-child {
+    border-bottom: none;
+}
+
+.tipo:hover {
+    background-color: var(--gris-fondo);
+}
+
+.tipo:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: -2px;
+}
+
+.tipo.activo {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.mensaje-info {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid var(--negro);
+    text-align: center;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mensaje-info.visible {
+    display: block;
+}
+
+.contacto-error {
+    display: none;
+    margin-top: 4px;
+    font-size: 10px;
+    color: #c00;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contacto-error.visible {
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .contenido-contacto {
+        grid-template-columns: 1fr;
+    }
+    .tipos {
+        order: -1;
+    }
+}
+
+
+/* =====================================================
+   17. INSTITUCIONAL (institucional.jsp)
+===================================================== */
+
+main.institucional-main {
+    display: block;
+    flex: 1;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.institucional-layout {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid var(--gris-claro);
+}
+
+.institucional-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.institucional-row:last-child {
+    border-bottom: none;
+}
+
+.institucional-label {
+    border-right: 1px solid var(--gris-claro);
+    padding: 35px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.institucional-text {
+    padding: 30px;
+    font-size: 13px;
+    line-height: 1.7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 600px) {
+    main.institucional-main { padding: 25px 12px; }
+    .institucional-row {
+        grid-template-columns: 1fr;
+    }
+    .institucional-label {
+        border-right: none;
+        border-bottom: 1px solid var(--gris-claro);
+        padding: 15px 10px;
+    }
+    .institucional-text {
+        padding: 20px 15px;
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   18. MIS PEDIDOS (pedidos.jsp)
+===================================================== */
+
+main.pedidos-main {
+    display: block;
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.pedidos-titulo {
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.pedidos-tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pedidos-tabla thead tr {
+    border-bottom: 2px solid var(--negro);
+    text-align: left;
+}
+
+.pedidos-tabla th {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.pedidos-tabla tbody tr {
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.pedidos-tabla td {
+    padding: 15px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.pedidos-tabla .col-estado {
+    text-transform: uppercase;
+}
+
+.pedidos-tabla .col-total {
+    text-align: right;
+}
+
+.pedidos-vacio {
+    padding: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--gris);
+}
+
+.pedidos-volver {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pedidos-volver-enlace {
+    color: var(--negro);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 14px;
+}
+
+.pedidos-volver-enlace:hover {
+    opacity: 0.55;
+}
+
+.pedidos-volver-enlace:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    main.pedidos-main { padding: 30px 15px; }
+    .pedidos-titulo { font-size: 20px; margin-bottom: 25px; }
+    .pedidos-tabla th,
+    .pedidos-tabla td { padding: 12px 6px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+    main.pedidos-main { padding: 25px 12px; }
+    .pedidos-titulo { font-size: 18px; }
+    .pedidos-tabla th,
+    .pedidos-tabla td { padding: 10px 4px; font-size: 12px; }
+}
+
+
+/* =====================================================
+   19. CONFIRMACIÓN DE COMPRA (confirmacion.jsp)
+===================================================== */
+
+.pagina-confirmacion {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: var(--gris-fondo);
+}
+
+.confirmacion-tarjeta {
+    background-color: var(--blanco);
+    padding: 50px;
+    border: 1px solid var(--gris-claro);
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmacion-icono {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.confirmacion-icono svg {
+    width: 40px;
+    height: 40px;
+    stroke: #28a745;
+    stroke-width: 3;
+    fill: none;
+}
+
+.confirmacion-titulo {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.confirmacion-texto {
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.confirmacion-btn {
+    display: block;
+    line-height: 48px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    max-width: 320px;
+    width: 100%;
+}
+
+.confirmacion-volver {
+    color: var(--negro);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 13px;
+}
+
+.confirmacion-volver:hover {
+    opacity: 0.55;
+}
+
+.confirmacion-volver:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .confirmacion-tarjeta {
+        padding: 30px 20px;
+    }
+    .confirmacion-titulo {
+        font-size: 20px;
+    }
+    .confirmacion-texto {
+        font-size: 13px;
+    }
+}
+
+/* Detalle producto con imagen real (no placeholder) */
+.detalle-imagen-real {
+    padding: 20px;
+}
+
+.detalle-imagen-real img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+/* =====================================================
+   20. PANELES ADMINISTRATIVOS (panel-control, gestión-*)
+===================================================== */
+
+body.admin-body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: var(--negro);
+    background-color: var(--blanco);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+/* ----- Sidebar ----- */
+
+.admin-sidebar {
+    border-right: 1px solid var(--gris-claro);
+    background-color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.admin-sidebar-titulo {
+    padding: 15px 18px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris-oscuro);
+    border-bottom: 1px solid var(--gris-claro);
+    margin-bottom: 10px;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.admin-menu-link {
+    display: block;
+    padding: 14px 18px;
+    color: var(--negro);
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.admin-menu-link:hover {
+    background-color: var(--gris-fondo);
+}
+
+.admin-menu-link.activo,
+.admin-menu-link.activo:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.admin-menu-link:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: -2px;
+}
+
+.admin-menu-salir {
+    margin-top: auto;
+    border-top: 1px solid var(--gris-claro);
+    color: var(--gris-oscuro);
+    font-size: 12px;
+}
+
+/* ----- Main ----- */
+
+.admin-main {
+    display: block;
+    padding: 30px;
+    overflow-x: auto;
+    min-width: 0;
+}
+
+.admin-main h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: var(--negro);
+}
+
+.admin-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.admin-main-header h1 {
+    margin: 0;
+}
+
+/* ----- Botones admin ----- */
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    height: 40px;
+    border: 1px solid var(--negro);
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.admin-btn:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.admin-btn-primario {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.admin-btn-primario:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+.admin-btn:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 3px;
+}
+
+.admin-icon-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--negro);
+    transition: 0.2s;
+}
+
+.admin-icon-btn:hover {
+    border-color: var(--negro);
+    background-color: var(--blanco);
+}
+
+.admin-icon-btn:focus-visible {
+    outline: 2px solid var(--negro);
+    outline-offset: 2px;
+}
+
+/* ----- Métricas y paneles (panel-control) ----- */
+
+.admin-metricas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.admin-metrica {
+    border: 1px solid var(--gris-claro);
+    padding: 18px;
+    background-color: var(--blanco);
+}
+
+.admin-metrica-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris-oscuro);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.admin-metrica-valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--negro);
+}
+
+.admin-paneles {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+}
+
+.admin-panel {
+    border: 1px solid var(--gris-claro);
+    padding: 18px;
+    min-height: 280px;
+    background-color: var(--blanco);
+}
+
+.admin-panel-titulo {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-panel-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris);
+    font-size: 12px;
+    background-color: var(--gris-fondo);
+    border: 1px dashed var(--gris-claro);
+}
+
+/* ----- Tablas admin ----- */
+
+.admin-tabla-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: var(--blanco);
+}
+
+.admin-tabla thead tr {
+    border-bottom: 1px solid var(--gris-oscuro);
+    text-align: left;
+}
+
+.admin-tabla th {
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gris-oscuro);
+}
+
+.admin-tabla tbody tr {
+    border-bottom: 1px solid var(--gris-claro);
+    transition: 0.2s;
+}
+
+.admin-tabla tbody tr:hover {
+    background-color: var(--gris-fondo);
+}
+
+.admin-tabla td {
+    padding: 14px 10px;
+    vertical-align: middle;
+}
+
+.admin-tabla .col-acciones {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ----- Badges ----- */
+
+.admin-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid var(--gris);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.admin-badge-activo {
+    border-color: var(--negro);
+    color: var(--negro);
+}
+
+.admin-badge-inactivo {
+    color: var(--gris);
+}
+
+.admin-badge-alerta {
+    border-color: #c00;
+    color: #c00;
+}
+
+/* ----- Toolbar con búsqueda (gestión-productos) ----- */
+
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.admin-buscar {
+    width: 280px;
+    max-width: 100%;
+    height: 38px;
+    border: 1px solid var(--gris-claro);
+    padding: 0 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    outline: none;
+}
+
+.admin-buscar:focus {
+    border-color: var(--negro);
+}
+
+.admin-toolbar-botones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ----- Sección extra (inventario) ----- */
+
+.admin-seccion {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--gris-claro);
+}
+
+.admin-seccion h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ----- Modal (gestión-productos) ----- */
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.admin-modal.activo {
+    display: flex;
+}
+
+.admin-modal-box {
+    background-color: var(--blanco);
+    width: 100%;
+    max-width: 440px;
+    padding: 25px;
+    border: 1px solid var(--negro);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.admin-modal-box h2 {
+    font-size: 16px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-form-grupo {
+    margin-bottom: 12px;
+}
+
+.admin-form-grupo label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-form-grupo input,
+.admin-form-grupo select {
+    width: 100%;
+    height: 38px;
+    border: 1px solid var(--gris-claro);
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    outline: none;
+}
+
+.admin-form-grupo input:focus,
+.admin-form-grupo select:focus {
+    border-color: var(--negro);
+}
+
+.admin-modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* ----- Responsive admin ----- */
+
+@media (max-width: 900px) {
+    body.admin-body {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--gris-claro);
+        padding-top: 0;
+    }
+
+    .admin-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .admin-menu-link {
+        flex: 1;
+        min-width: 130px;
+        padding: 12px 15px;
+        font-size: 12px;
+        border-right: 1px solid var(--gris-claro);
+    }
+
+    .admin-menu-salir {
+        margin-top: 0;
+        flex-basis: 100%;
+        border-top: 1px solid var(--gris-claro);
+        border-right: none;
+        text-align: center;
+    }
+
+    .admin-main {
+        padding: 20px 15px;
+    }
+
+    .admin-metricas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-paneles {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-main h1 {
+        font-size: 18px;
+    }
+
+    .admin-main-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-tabla {
+        font-size: 12px;
+    }
+
+    .admin-tabla th,
+    .admin-tabla td {
+        padding: 10px 6px;
+    }
+
+    .admin-btn {
+        padding: 0 15px;
+        font-size: 11px;
+        height: 36px;
+    }
+
+    .admin-buscar {
+        width: 100%;
+    }
+
+    .admin-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-modal-box {
+        padding: 20px 15px;
+    }
+}

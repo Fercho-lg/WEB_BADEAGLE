@@ -1,0 +1,425 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23/10/2026, 4:34:15 p. m.
+    Author     : USUARIO
+*/
+/* =====================================================
+   ADMIN.CSS — PANELES DE ADMINISTRACIÓN
+===================================================== */
+
+/* Reseteo base solo para el body de admin */
+body.admin-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+}
+
+body.admin-body * {
+    box-sizing: border-box;
+}
+
+/* ----- Sidebar ----- */
+.admin-sidebar {
+    border-right: 1px solid #cfcfcf;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.admin-sidebar-titulo {
+    padding: 15px 18px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 10px;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.admin-menu-link {
+    display: block;
+    padding: 14px 18px;
+    color: #000;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.admin-menu-link:hover {
+    background-color: #f7f7f7;
+}
+
+.admin-menu-link.activo,
+.admin-menu-link.activo:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.admin-menu-link:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: -2px;
+}
+
+.admin-menu-salir {
+    margin-top: auto;
+    border-top: 1px solid #cfcfcf;
+    color: #777;
+    font-size: 12px;
+}
+
+/* ----- Main ----- */
+.admin-main {
+    display: block;
+    padding: 30px;
+    overflow-x: auto;
+    min-width: 0;
+}
+
+.admin-main h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.admin-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.admin-main-header h1 {
+    margin: 0;
+}
+
+/* ----- Botones ----- */
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    height: 40px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.admin-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.admin-btn-primario {
+    background-color: #000;
+    color: #fff;
+}
+
+.admin-btn-primario:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.admin-btn:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 3px;
+}
+
+.admin-icon-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #000;
+    transition: 0.2s;
+}
+
+.admin-icon-btn:hover {
+    border-color: #000;
+    background-color: #fff;
+}
+
+.admin-icon-btn:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* ----- Métricas (Dashboard) ----- */
+.admin-metricas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.admin-metrica {
+    border: 1px solid #cfcfcf;
+    padding: 18px;
+    background-color: #fff;
+}
+
+.admin-metrica-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.admin-metrica-valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.admin-paneles {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+}
+
+.admin-panel {
+    border: 1px solid #cfcfcf;
+    padding: 18px;
+    min-height: 280px;
+    background-color: #fff;
+}
+
+.admin-panel-titulo {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.admin-panel-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+    background-color: #f7f7f7;
+    border: 1px dashed #cfcfcf;
+}
+
+/* ----- Tablas ----- */
+.admin-tabla-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.admin-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: #fff;
+}
+
+.admin-tabla thead tr {
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+.admin-tabla th {
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.admin-tabla tbody tr {
+    border-bottom: 1px solid #cfcfcf;
+    transition: 0.2s;
+}
+
+.admin-tabla tbody tr:hover {
+    background-color: #f7f7f7;
+}
+
+.admin-tabla td {
+    padding: 14px 10px;
+    vertical-align: middle;
+}
+
+.admin-tabla .col-acciones {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* ----- Badges de estado ----- */
+.admin-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid #777;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.admin-badge-activo { border-color: #000; color: #000; }
+.admin-badge-inactivo { color: #777; }
+.admin-badge-alerta { border-color: #c00; color: #c00; }
+.admin-badge-info { border-color: #0056b3; color: #0056b3; } /* Nuevo para PQR */
+
+/* ----- Toolbar de búsqueda ----- */
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.admin-buscar {
+    width: 280px;
+    max-width: 100%;
+    height: 38px;
+    border: 1px solid #cfcfcf;
+    padding: 0 12px;
+    font-size: 13px;
+    outline: none;
+}
+
+.admin-buscar:focus {
+    border-color: #000;
+}
+
+.admin-toolbar-botones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ----- Modales ----- */
+.admin-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.admin-modal.activo {
+    display: flex;
+}
+
+.admin-modal-box {
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+    border: 1px solid #000;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.admin-modal-box h2 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.admin-form-grupo {
+    margin-bottom: 12px;
+}
+
+.admin-form-grupo label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.admin-form-grupo input,
+.admin-form-grupo select,
+.admin-form-grupo textarea {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #cfcfcf;
+    padding: 0 10px;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+}
+
+.admin-form-grupo textarea {
+    height: 100px;
+    padding: 10px;
+    resize: vertical;
+}
+
+.admin-form-grupo input:focus,
+.admin-form-grupo select:focus,
+.admin-form-grupo textarea:focus {
+    border-color: #000;
+}
+
+.admin-modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+    body.admin-body { grid-template-columns: 1fr; }
+    .admin-sidebar { border-right: none; border-bottom: 1px solid #cfcfcf; padding-top: 0; }
+    .admin-menu { flex-direction: row; flex-wrap: wrap; height: auto; }
+    .admin-menu-link { flex: 1; min-width: 130px; padding: 12px 15px; font-size: 12px; border-right: 1px solid #cfcfcf; }
+    .admin-menu-salir { margin-top: 0; flex-basis: 100%; border-top: 1px solid #cfcfcf; border-right: none; text-align: center; }
+    .admin-main { padding: 20px 15px; }
+    .admin-metricas { grid-template-columns: repeat(2, 1fr); }
+    .admin-paneles { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .admin-metricas { grid-template-columns: 1fr; }
+    .admin-main h1 { font-size: 18px; }
+    .admin-main-header { flex-direction: column; align-items: stretch; }
+    .admin-tabla { font-size: 12px; }
+    .admin-tabla th, .admin-tabla td { padding: 10px 6px; }
+    .admin-btn { padding: 0 15px; font-size: 11px; height: 36px; }
+    .admin-buscar { width: 100%; }
+    .admin-toolbar { flex-direction: column; align-items: stretch; }
+    .admin-modal-box { padding: 20px 15px; }
+}

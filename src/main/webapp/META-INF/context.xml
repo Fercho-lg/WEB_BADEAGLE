@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" 
+         path="/badeagle-1.0-SNAPSHOT"
+         reloadable="true">
+    
+    <!-- 
+        Configuración de contexto para Tomcat.
+        Permite recargar la aplicación automáticamente
+        cuando se modifica el código.
+    -->
+    
+</Context>
+
